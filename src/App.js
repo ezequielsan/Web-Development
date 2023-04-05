@@ -1,10 +1,12 @@
-import './App.css';
-import FunctionContextA from './Componentes/Activities/Activity_02/FunctionContextA';
+import "./App.css"
+import MyData from "./Components/Activities/Activity_00/MyData"
 
 function App() {
   return (
-    <FunctionContextA />
-  );
+    <div className="App">
+      <MyData />
+    </div>
+  )
 }
 
-export default App;
+export default App

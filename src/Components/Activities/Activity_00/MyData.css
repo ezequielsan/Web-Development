@@ -1,0 +1,21 @@
+.container {
+  margin: 0 auto;
+  padding: 1rem .5rem;
+  max-width: 500px;
+}
+
+.profile {
+  background-color: black;
+  color: white;
+  margin-top: 2rem;
+  padding: .5rem;
+}
+
+.title {
+  border: 4px dashed black;
+  padding: 4px 10px;
+}
+
+.mark {
+  color: rgb(131, 128, 133);  
+}
