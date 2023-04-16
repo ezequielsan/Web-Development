@@ -6,7 +6,7 @@ function Supermarket({ children, name }) {
       <h1>Supermarket { name }</h1>
       {
         Children.map(children, child => {
-          if (child.type.name === "Fruit") {
+          if (child.type.name === "Lettuce") {
             return (
               <div style={{backgroundColor: "pink"}}>
                 { cloneElement(child,{supermarket: name}) }
