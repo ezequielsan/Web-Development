@@ -1,84 +1,73 @@
 import { useEffect, useState } from "react";
 
 export function VoteOfCities() {
-  const [counterQuixada,  setCounterQuixada] = useState(0);
-  const [counterFortaleza, setCounterFortaleza] = useState(0);
-  const [counterParaipaba, setCounterParaipaba] = useState(0);
-  const [counterRedencao, setCounterRedencao] = useState(0);
+  
+  const [cities, setCities] = useState([
+    {name: "Quixada", votos: 0},
+    {name: "Fortaleza", votos: 0},
+    {name: "Paraipaba", votos: 0},
+    {name: "Redencao", votos: 0},
+  ])
+  const [flag, setFlag] = useState(false)
 
-  const [mostVoted, setMostVoted] = useState("")
-  const [leastVoted, setLeastVoted] = useState("")
-
-  function incrementCounterQuixada() {
-    console.log(this)
-    setCounterQuixada(counterQuixada + 1)
-  }
+  const voteCity = name => {
+    const index = cities.findIndex(item => item.name === name);
+    cities[index].votos += 1;
     
-  const incrementCounterFortaleza = () => {
-    setCounterFortaleza(counterFortaleza + 1)
+    setFlag(previousFlag => !previousFlag)
+
+    console.log(cities)
   }
 
-  const incrementCounterParaipaba = () => {
-    setCounterParaipaba(counterParaipaba + 1)
+  const voteCityV2 = name => {
+    /*
+    const newCities = cities.map(citie => {
+      if (citie.name === name) 
+        return { ...citie, votos: citie.votos +1 }
+      return { ...citie }
+    })
+    */
+    const newCities = cities.map(citie => {
+      if (citie.name === name) 
+        citie.votos += 1
+      return citie;
+    })
+    console.log(cities[0].vo)
+    setCities(newCities)
   }
 
-  const incrementCounterRedencao = () => {
-    setCounterRedencao(counterRedencao + 1)
-  }
-
-  const citiesMostVoted = (list) => {
-
-  }
-
-  useEffect(
-    () => {
-      let cities = [ counterQuixada, counterFortaleza, counterParaipaba, counterRedencao ]
-      let nameCities = ["Quixada", "Fortaleza", "Paraipaba", "Redenção"]
-      let maior = cities[0]
-      let menor = cities[0]
-      
-      for (let i = 0; i < cities.length; i++) {
-        if (cities[i] > maior) maior = cities[i]
-        if (cities[i] < menor) menor = cities[i]
-      }
-
-      setMostVoted("")
-      for (let i = 0; i < cities.length; i++) {
-        if (cities[i] == maior) setMostVoted(nameCities[i])
-      }
-
-      console.log(maior, menor)
-    },
-    [ counterQuixada, counterFortaleza, counterParaipaba, counterRedencao ]
-  )
-
+  const html = `
+  <h3 style={{display: "flex", justifyContent: "space-between"}}>
+    Quixada: <span style={{color: "#BA4949"}}>${ cities[0].votos }</span>
+  </h3>
+  `
 
   return (
     <div>
       <h1 style={{margin: "4rem 0"}}>Votação de Cidades</h1>
       <h3 style={{display: "flex", justifyContent: "space-between"}}>
-        Quixada: <span style={{color: "#BA4949"}}>{ counterQuixada }</span>
+        Quixada: <span style={{color: "#BA4949"}}>{ cities[0].votos }</span>
       </h3>
       <h3 style={{display: "flex", justifyContent: "space-between"}}>
-        Fortaleza: <span style={{color: "#BA4949"}}>{ counterFortaleza }</span>
+        Fortaleza: <span style={{color: "#BA4949"}}>{ cities[1].votos }</span>
       </h3>
       <h3 style={{display: "flex", justifyContent: "space-between"}}>
-        Paraipaba: <span style={{color: "#BA4949"}}>{ counterParaipaba }</span>
+        Paraipaba: <span style={{color: "#BA4949"}}>{ cities[2].votos }</span>
       </h3>
       <h3 style={{display: "flex", justifyContent: "space-between"}}>
-        Redenção: <span style={{color: "#BA4949"}}>{ counterRedencao }</span>
+        Redenção: <span style={{color: "#BA4949"}}>{ cities[3].votos }</span>
       </h3>
 
       <div style={{margin: "3rem 0", display: "flex", justifyContent: "space-between"}}>
-        <button onClick={incrementCounterQuixada}>Votar Quixada</button>
-        <button onClick={incrementCounterFortaleza}>Votar Fortaleza</button>
-        <button onClick={incrementCounterParaipaba}>Votar Paraipaba</button>
-        <button onClick={incrementCounterRedencao}>Votar Redenção</button>
+        <button onClick={() => voteCityV2("Quixada")}>Votar Quixada</button>
+        <button onClick={() => voteCityV2("Fortaleza")}>Votar Fortaleza</button>
+        <button onClick={() => voteCityV2("Paraipaba")}>Votar Paraipaba</button>
+        <button onClick={() => voteCityV2("Redencao")}>Votar Redenção</button>
       </div>
 
       <div>
-        <h4>Cidade mais votada: <span>{ mostVoted }</span></h4>
-        <h4>Cidade menos votada: <span>{ leastVoted }</span></h4>
+        <h4>Cidade mais votada: <span></span></h4>
+        <h4>Cidade menos votada: <span></span></h4>
       </div>
     </div>
   )
