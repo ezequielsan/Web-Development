@@ -1,4 +1,4 @@
 import { createContext } from "react"
-const ColorTheme = createContext("")
+const ColorTheme = createContext()
 
 export default ColorTheme

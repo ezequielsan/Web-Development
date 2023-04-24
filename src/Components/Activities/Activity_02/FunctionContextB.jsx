@@ -4,10 +4,10 @@ const FunctionContextB = () => {
   return (
     <ColorTheme.Consumer>
       {
-        (value) => {
+        ({bkgB}) => {
           return (
             <div>
-              <h1 style={{ color: value }}>
+              <h1 style={{ backgroundColor: bkgB }}>
                 Contexto B
               </h1>
             </div>

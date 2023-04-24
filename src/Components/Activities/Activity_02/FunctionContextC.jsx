@@ -1,23 +1,16 @@
+import { useContext } from "react"
 import ColorTheme from "./MyColorContext"
 import FunctionContextD from "./FunctionContextD"
 
 const FunctionContextC = () => {
+  const {bkgC} = useContext(ColorTheme) 
   return (
-    <ColorTheme.Consumer>
-      {
-        (value) => {
-          return (
-            <div>
-              <h1 style={{ color: value }}>
-                Contexto C
-              </h1>
-              <FunctionContextD />
-            </div>
-          )
-        }
-      }
-    </ColorTheme.Consumer>
-
+    <div>
+      <h1 style={{ backgroundColor: bkgC }}>
+        Contexto C
+      </h1>
+      <FunctionContextD />
+    </div>
   )
 }
 
