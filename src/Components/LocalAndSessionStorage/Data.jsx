@@ -14,7 +14,7 @@ export function SaveData() {
       }
     ]
 
-    // sessionStorage.setItem(students[0].matricula, JSON.stringify(students[0]));
+    sessionStorage.setItem(students[0].matricula, JSON.stringify(students[0]));
     localStorage.setItem(students[1].matricula, JSON.stringify(students[1]));
   }
 

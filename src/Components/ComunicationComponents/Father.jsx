@@ -1,18 +1,14 @@
 import { Son } from "./Son"
 
 export function Father() {
-
-  const messageOfSon = (mensagem) => {
-    alert("Filho Falou: " + mensagem)
-  }
+  const messageOfSon = msg => {
+    alert("My son said: " + msg);
+  } 
 
   return (
-    <>
-      <h1>Componente Pai</h1>
-      <Son 
-        allowance={ 600.00 }
-        message={ messageOfSon }
-      />
-    </>
+    <div>
+      <h1>Pai</h1>
+      <Son message={ messageOfSon }/>
+    </div>
   )
 }

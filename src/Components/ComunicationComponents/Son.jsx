@@ -1,18 +1,11 @@
-export function Son({ allowance, message }) {
-
+export function Son({ message }) {
   return (
-    <>
-      <h1>Componente Filho</h1>
-      <h3>Messada: { allowance }</h3>
-      <button 
-        onClick={
-          () => {
-            message("Pão Duro");
-          }
-        }
-      >
-        Agradecer Pai
+    <div>
+      <h1>Filho</h1>
+      <button onClick={() => message("Hello daddy")}>
+        Enviar Mensagem
       </button>
-    </>
+      
+    </div>
   )
 }
