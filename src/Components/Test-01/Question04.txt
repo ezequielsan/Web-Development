@@ -1,0 +1,13 @@
+Imagine que em uma hierarquia de componentes nós queremos
+passar via props alguma informação de um componente acima 
+na hierarquia (componente pai) para um componente abaixo na 
+hierarquia (componente filho). Para fazer isso, precisaria-mos
+e passando a informação de cima para baixo, passando por compo-
+nentes intermediários que não precisam daquela informação.
+Para resolver esse problema, podemos usar contextos. Com 
+contextos, nós podemos definir o conjunto de informações que
+serão repassadas e no componente que irá fornecer essas 
+informações (provider) nós passamos essas informações.
+Passada essas informações, os componentes que precisarem dessas
+informações poderão pega-los (Consumer), componentes esses que
+poderão estar em qualquer nivel da hierarquia. 
